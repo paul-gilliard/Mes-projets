@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<br><br><br>
+
+    {{ form_start(formUpgrade) }}
+    {{ form_widget(formUpgrade) }}
+    <button type="submit" class="btn" style="padding:6px 0 6px 0;
+	font:bold 13px Arial;
+	background:#478bf9;
+	color:#fff;
+	border-radius:2px;
+	width:200px;
+	border:none;">Modifier l'abonnement</button>
+    {{ form_end(formUpgrade) }}
+
+<br><br>
+   <a href="/product/new/"> <srong>Je ne veux pas </srong>    </a>
+{% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block srylesheets %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">{% endblock %}
+
+</head>
+
+<ul class="menu icons icon-left" style="background-color: lightpink; font-size: x-large">
+
+    <li><a href="{{ path('home') }}"><i class="fi-list"></i> Gestion des comptes</a></li>
+    <li><a href="{{ path('app_logout') }}"><i class="fi-list"></i> Deconnexion</a></li>
+</ul>
+
+{% block body %}
+{% if app.user.roles[0] == 1 %}
+    <center>
+<h1> Salut l'admin </h1>
+<br>
+    <div style="width: 20%; text-align: center
+">
+{% for user in tableauDeTousLesFormes %}
+
+    {{ user[1].username }} --> <a href="/product/new/deleteUser/{{user[1].username}}/{{ user[1].id }}" onclick="return confirm('T\'es sur de vouloir delete ce compte et le contenu du répertoire  ?')"> Supprimer le compte</a><br>
+    {{ form_start(user[0]) }}
+    {{ form_widget(user[0] ) }}
+    <button type="submit" class="btn" style="padding:6px 0 6px 0;
+	font:bold 13px Arial;
+	background:#478bf9;
+	color:#fff;
+	border-radius:2px;
+	width:200px;
+	border:none;">Modifier l'abonnement</button>
+    {{ form_end(user[0]) }}
+    <br><br>
+{% endfor %}
+
+
+    </div>
+    </center>
+    {% else %}
+    <h1> Y'a rien ici mec </h1>
+{% endif %}
+{% endblock %}

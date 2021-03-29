@@ -1,0 +1,5 @@
+# app/config/config_dev.yml
+swiftmailer:
+  transport: gmail
+  username:  paul.gilliard.8@gmail.com
+  password:  hCJL8B726%!%

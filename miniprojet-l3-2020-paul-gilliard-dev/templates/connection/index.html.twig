@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connection{% endblock %}
+
+{% block body %}
+    {% form_theme infoForm 'foundation_6_layout.html.twig' %}
+    {{ form(infoForm) }}
+    {{ form_errors(infoForm) }}
+
+    <a href="{{ path('app_register')}}"> Inscrivez vous </a>
+
+{% endblock %}

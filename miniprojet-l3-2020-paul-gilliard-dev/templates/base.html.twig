@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block srylesheets %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">{% endblock %}
+
+</head>
+
+<ul class="menu icons icon-left" style="background-color: lightpink; font-size: x-large">
+
+    <li><a href="{{ path('app_product_new') }}"><i class="fi-list"></i> Votre Drive</a></li>
+    <li><a href="{{ path('augmentation_quota') }}"> Augmentez votre stockage ! </a></li>
+   <li><a href="{{ path( 'app_logout' ) }}"><i class="fi-list"></i> Deconnexion</a></li>
+</ul>
+<center>
+{% block body %}{% endblock %}
+</center>
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+</body>
+</html>

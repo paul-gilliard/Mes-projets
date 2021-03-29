@@ -1,0 +1,35 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <center>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <h1>Inscription</h1>
+    {% form_theme registrationForm 'bootstrap_3_layout.html.twig'%}
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+    {{ form_row(registrationForm.formule, {
+        label: 'Formule (nombre de Mo [1/10/100] '
+    }) }}
+        <div class="g-recaptcha" data-sitekey="6LfJYTAaAAAAAM40X-5dMyQBW5k159w7EmX2FQyp"></div>
+
+
+        <button type="submit" class="btn" style="padding:6px 0 6px 0;
+	font:bold 13px Arial;
+	background:#478bf9;
+	color:#fff;
+	border-radius:2px;
+	width:100px;
+	border:none;">Inscription</button>
+    {{ form_end(registrationForm) }}
+
+</center>
+{% endblock %}
